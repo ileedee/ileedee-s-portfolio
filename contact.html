@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact me</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="shortcut icon" href="/src/img/IMG_9772.jpg" type="image/x-icon" />
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js"></script>
+
+    <script type="text/JavaScript">
+        (function () { 
+            emailjs.init ({ publicKey:"77Jf9zpMNBix1xtDW" ,
+            });
+        })();
+
+    </script>
+
+
+</head>
+
+<body class="bg-blue-800">
+    <header class="bg-blue-800 text-white sticky top-0 z-50 shadow-md ">
+        <nav class="flex items-center justify-between text-2xl p-2.5  lg:py-5">
+            <!-- name  -->
+            <div class="w-[10%] md:w-[8%] lg:w-[5%] xl:w-[3%]">
+                <p class="text-2xl">יִצְחָקy </p>
+            </div>
+            <!-- Nav link -->
+            <ul class="hidden md:flex md:gap-10" id="nav-links">
+                <li> <a href="index.html" class="m-1.5 text-sm md:hover:underline md:text-lg lg:text-xl">Home</a></li>
+                <li> <a href="about.html" class="m-1.5 text-sm md:hover:underline md:text-lg lg:text-xl">About</a></li>
+                <li> <a href="skill.html" class="m-1.5 text-sm md:hover:underline md:text-lg lg:text-xl">Skill</a></li>
+                <li> <a href="contact.html" class="m-1.5 text-sm md:hover:underline md:text-lg lg:text-xl">Contact</a>
+                </li>
+            </ul>
+            <!-- hambuger for mobile view -->
+            <div class="md:hidden" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- HERO SECTION -->
+    <main class="md:mb-100">
+
+        <section class=" text-white block md:grid grid-cols-3 flex-row-reverse  p-[2rem] pt-10 ">
+            <!-- x -->
+            <div class="">
+                <div class=" bg-white text-black p-3 rounded-3xl m-2 justify-items-center ">
+                    <h3 class="bg-blue-400 text-white p-1 rounded-xl"> <strong> CHAT ON X (TWITTER) </strong></h3>
+                    <p>Follow for daily market updates, breakdowns and live trades.</p> <br>
+                    <span class=" bg-blue-400 p-1 rounded-2xl  text-white md:text-black  md:hover:text-white ">
+                        <a href="https://X.com/Ileedee" target="_blank">X.com/Ileedee</a></span>
+                </div>
+            </div>
+            <!-- WHATSAPP -->
+
+            <div>
+                <div class=" bg-white text-black p-3 rounded-3xl m-2 justify-items-center ">
+                    <h3 class="bg-blue-400 text-white p-1 rounded-xl"> <strong> CHAT ON (WHATSAPP)</strong></h3>
+                    <p>Fastest way to reach me for mentorship and enrollment..</p> <br>
+                    <span class=" bg-blue-400 p-1 rounded-2xl text-white md:text-black  md:hover:text-white ">
+                        <a href="https://wa.me/2349155315026" target="_blank"> WHATSAPP ME</a></span>
+                </div>
+            </div>
+            <!-- WHATSAPP  -->
+            <div>
+                <div class=" bg-white text-black p-3 rounded-3xl m-2 justify-items-center ">
+                    <h3 class="bg-blue-400 text-white p-1 rounded-xl"> <strong>Email</strong></h3>
+                    <p>For business inquiries, partnerships, and support.</p> <br>
+                    <span class=" bg-blue-400 p-1 text-white md:text-black rounded-2xl md:hover:text-white ">
+                        <a href="mailto:weirdghoost@gmail.com" target="_blank">MAIL ME</a></span>
+                </div>
+            </div>
+        </section>
+
+        <section class=" justify-items-center text-black p-3 rounded-2xl">
+            <div class=" bg-white justify-items-center rounded-xl p-1 md:p-3 ">
+                <h2> <strong>Send a Direct Message</strong></h2>
+
+                <form action="" class="text-black" id="contact-form">
+                    <input name="name" type="text" placeholder="Your Full Name " required
+                        class=" p-2 w-full rounded-xl border ">
+                    <input name="email" type="email" placeholder="Your Email Address" required
+                        class=" p-2 w-full rounded-xl border">
+                    <textarea placeholder="Your Message..." name="message" rows="5" required
+                        class=" p-2 not-last:w-full rounded-xl border "></textarea>
+                    <button type="submit"
+                        class=" bg-blue-400 p-1 rounded-2xl  text-white md:text-black  md:hover:text-white">SEND
+                        MESSAGE</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault()
+            emailjs.sendForm('service_gu78yyr', 'template_vcfljjq', this)
+                .then(function () {
+                    alert(' Message sent Successfully!');
+                    form.reset();
+                }, function (error) {
+                    alert(' Failed to send message. Please try again.');
+                    console.log('FAILED...', error);
+
+                });
+        });
+
+    </script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+
+        });
+    </script>
+
+</body>
+<footer class="bg-white content-center pt-1 pb-1 sticky bottom-0 z-50 shadow-md ">
+    <div>
+        <marquee behavior="" direction="" class=" bg-blue-600 text-white "> Welcome to my Professional profile, this
+            website talks briefly about me you can contact me to get more information . </marquee>
+    </div>
+</footer>
+
+</html>
