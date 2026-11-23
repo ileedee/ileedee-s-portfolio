@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description"
+        content="Portfolio of a skilled developer & designer building modern websites creative solutions, and digital experiences that drive results." />
+    <meta name="keywords"
+        content="Register, Education, Fees, School, Learning, Forex, Trading, Ileedee Isaac Dumale, Portfolio " />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME-PAGE</title>
     <link rel="stylesheet" href="src/output.css">
@@ -12,13 +16,26 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="shortcut icon" href="/src/img/IMG_9772.jpg" type="image/x-icon" />
 
-    <!-- EMIALJS SERVICE ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-413695034');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 </head>
 
-<body class="bg-blue-800">
-    <header class="bg-blue-800 text-white sticky top-0 z-50 shadow-md ">
-        <nav class="flex items-center justify-between text-2xl p-2.5  lg:py-5">
+<body class="bg-white dark:bg-blue-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <header
+        class="bg-white dark:bg-blue-900 text-gray-900 dark:text-white sticky top-0 z-50 shadow-md transition-colors duration-300">
+        <nav class="flex items-center justify-between text-2xl p-2.5 lg:py-5">
             <!-- name  -->
             <div class="w-[10%] md:w-[8%] lg:w-[5%] xl:w-[3%]">
                 <p class="text-2xl">יִצְחָקy </p>
@@ -31,48 +48,63 @@
                 <li> <a href="contact.html" class="m-1.5 text-sm md:hover:underline md:text-lg lg:text-xl">Contact</a>
                 </li>
             </ul>
-            <!-- hambuger for mobile view -->
-            <div class="md:hidden cursor-pointer" id="hamburger">
-                <i class="fa-solid fa-bars"></i>
+            <div class="flex items-center gap-4">
+                <!-- Dark mode toggle -->
+                <button id="theme-toggle" class="text-xl cursor-pointer p-1" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+                <!-- hambuger for mobile view -->
+                <div class="md:hidden cursor-pointer" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </nav>
-        <hr>
+        <hr class="border-gray-200 dark:border-blue-700">
     </header>
 
     <!-- HERO SECTION -->
-    <main class=" text-white flex flex-col md:flex-row-reverse p-[2rem] pt-30 md:mb-50 ">
+    <main class="flex flex-col md:flex-row-reverse pt-30">
 
-        <div>
-
-            <div class="p-2 rounded-3xl bg-white w-full md:w-sm lg:w-sm xl:w-sm order-2">
+        <div class="p-[2rem]">
+            <div class="p-2 rounded-3xl bg-white dark:bg-blue-800 w-full md:w-sm lg:w-sm xl:w-sm order-2 shadow-lg">
                 <!-- profile photo  -->
-                <img src="/src/img/pass.JPG" alt="profile-pic" class="w-full">
+                <img src="/src/img/ILEEDEE_PASS.PNG" alt="profile-pic" class="w-100 rounded-2xl">
             </div>
         </div>
 
-
-        <div class=" md:p-10 rounded-4x m-10 content-start ">
+        <div class="md:p-10 rounded-4x m-10 content-start">
             <p class="text-2xl">Hello, I'm</p>
-            <h1 class=" text-5xl text-blue-300 ">יִצְחָקy</h1> <br>
+            <h1 class="text-5xl text-blue-600 dark:text-blue-300">יִצְחָקy</h1> <br>
 
             <p class="text-2xl">ILEEDEE ISAAC DUMALE | Founder - ILEE'S TRADING ACADEMY</p> <br>
 
             - I teach real trading skills — EMS + mSNR + SMC. Built on discipline & consistency. I help traders stop
             gambling and get funded. <br>
             <p>
-                - Also a FullStack Web Developer.
+                - Also a FullStack Web Developer <br> -
+                < /> I build digital experiences that feel simple, look sharp, and actually work.
             </p>
 
             <br>
             <br>
-            <br>
-            <br>
-
-            <span class=" text-white  bg-blue-500 rounded-3xl p-5">
-                <a href="contact.html"><strong>Get In Touch</strong></a></span>
+            <div class="md:flex">
+                <div class="m-2">
+                    <span class="border-4 border-blue-500 dark:border-white text-blue-600 dark:text-white 
+                        bg-transparent dark:bg-blue-500 rounded-3xl p-5 inline-block transition">
+                        <a href="contact.html"><strong>Get In Touch</strong></a>
+                    </span>
+                </div>
+                <br><br>
+                <div class="m-2">
+                    <span class="border-4 border-blue-500 dark:border-white text-blue-600 dark:text-white 
+                        bg-transparent dark:bg-blue-500 rounded-3xl p-5 inline-block transition">
+                        <a href="#" target="_blank"><strong>Visit Academy</strong></a>
+                    </span>
+                </div>
+            </div>
         </div>
     </main>
-    <hr class="  text-white ">
+    <hr class="border-gray-200 dark:border-blue-700">
 
     <script>
         const hamburger = document.getElementById('hamburger');
@@ -81,15 +113,42 @@
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('hidden');
             navLinks.classList.toggle('flex');
+        });
 
+        // Dark mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // On load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        } else {
+            html.classList.remove('dark');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                localStorage.theme = 'light';
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
         });
     </script>
 </body>
-<footer class="bg-white content-center pt-1 pb-1 sticky bottom-0 z-50 shadow-md ">
+
+<footer
+    class="bg-gray-100 dark:bg-blue-950 content-center pt-1 pb-1 sticky bottom-0 z-50 shadow-md transition-colors duration-300">
     <div>
-        <marquee behavior="" direction="" class=" bg-blue-600 text-white "> Welcome to my Professional profile, this
-            website talks briefly about me you can <a href="contact.html"><strong>contact me</strong></a> to get more
-            information . </marquee>
+        <marquee behavior="" direction="" scrollamount="3s" class="bg-blue-600 text-white">
+            Welcome to my Professional profile, this website talks briefly about me. You can
+            <a href="contact.html"><strong>contact me</strong></a> to get more information.
+        </marquee>
     </div>
 </footer>
 
